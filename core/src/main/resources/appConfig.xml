@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    xml로 빈 등록 AppConfig랑 완전 같은 내용임-->
+    <bean id="memberService" class="Springbasic.core.member.MemberServiceImpl" >
+        <constructor-arg name="memberRepository" ref="memberRepository" />
+    </bean>
+
+    <bean id="memberRepository" class="Springbasic.core.member.MemoryMemberRepository" />
+
+    <bean id="orderService" class="Springbasic.core.order.OrderServiceImpl">
+        <constructor-arg name="memberRepository" ref="memberRepository" />
+        <constructor-arg name="discountPolicy" ref="discountPolicy" />
+    </bean>
+
+
+    <bean id="discountPolicy" class="Springbasic.core.discount.RateDiscountPolicy" />
+</beans>
