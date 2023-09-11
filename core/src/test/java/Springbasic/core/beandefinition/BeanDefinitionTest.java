@@ -9,6 +9,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class BeanDefinitionTest {
 
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+    // GenericXml로도 정보 확인 가능하다.
+//    ApplicationContext ac = new GenericXmlApplicationContext("appConfig.xml");
+
+    // 빈을 등록하는 방법
+    // 1. 팩토리 메서드를 통해 등록 (자바코드) AppConfig에서 팩토리 메서드를 사용해서 등록 -> 외부에서 메서드를 호출해 등록하는 방식
+    // 2. 직접 등록 (xml)
 
     @Test
     @DisplayName("빈 설정 메타 정보 확인")
