@@ -25,8 +25,10 @@ public class MemberServiceTest {
         // when
         memberService.join(member);
         Member findMember = memberService.findMember(1L);
+        Member findMemberByName = memberService.findByMemberName("memberA");
 
         // then
         Assertions.assertThat(member).isEqualTo(findMember);
+        Assertions.assertThat(member).isEqualTo(findMemberByName);
     }
 }

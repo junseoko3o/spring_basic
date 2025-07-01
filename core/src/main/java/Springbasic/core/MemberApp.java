@@ -20,10 +20,16 @@ public class MemberApp {
         MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
 
         Member member = new Member(1L, "memberA", Grade.VIP);
+        Member member2 = new Member(2L, "memberB", Grade.VIP);
         memberService.join(member);
+        memberService.join(member2);
 
         Member findMember = memberService.findMember(1L);
         System.out.println("new member = " + member.getName());
         System.out.println("findMember = " + findMember.getName());
+
+        System.out.println("new member2 = " + member2.getName());
+        Member findMember2 = memberService.findByMemberName("memberB");
+        System.out.println("findMember2 = " + findMember2.getName());
     }
 }
