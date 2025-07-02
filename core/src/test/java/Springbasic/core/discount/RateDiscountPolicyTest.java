@@ -34,4 +34,17 @@ class RateDiscountPolicyTest {
         //then
         assertThat(discount).isEqualTo(0);
     }
+
+    @Test
+    @DisplayName("갑자기 20%할인 해버리면")
+    void vip_over() {
+        Member member = new Member(1L, "memberVIP", Grade.VIP);
+        int discount = discountPolicy.discount(member, 20000);
+        try {
+            assertThat(discount).isEqualTo(1000);
+            System.out.println("❌ 할인 정책이 바뀌었는데도 테스트가 통과함 - 문제 있음!");
+        } catch (AssertionError e) {
+            System.out.println("✅ 할인 정책이 변경되어 테스트 실패함 (의도된 실패): " + e.getMessage());
+        }
+    }
 }
