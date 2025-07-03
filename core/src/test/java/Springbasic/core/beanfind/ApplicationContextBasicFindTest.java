@@ -36,9 +36,9 @@ public class ApplicationContextBasicFindTest {
     }
 
     @Test
-    @DisplayName("구체 타입으로 조회")
+    @DisplayName("구체 타입으로 조회") // 비추
     void findBeanByName2() {
-        MemberService memberService = ac.getBean("memberService", MemberServiceImpl.class);
+        MemberServiceImpl memberService = ac.getBean("memberService", MemberServiceImpl.class);
         System.out.println("memberService = " + memberService);
         System.out.println("memberService.getClasS() = " + memberService.getClass());
 
