@@ -26,16 +26,19 @@ public class AppConfig {
     // 역할이 드러나도록 리팩토링
     @Bean // 각 메서드에 Bean , 이러면 스프링 컨테이너에 등록이 된다.
     public MemberService memberService() {
+        System.out.println("call AppConfig.memberService()");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
     public MemoryMemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository()");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService() {
+        System.out.println("call AppConfig.orderService()");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 

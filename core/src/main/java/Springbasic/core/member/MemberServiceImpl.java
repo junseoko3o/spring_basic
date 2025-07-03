@@ -24,4 +24,9 @@ public class MemberServiceImpl implements  MemberService{
     public Member findByMemberName(String memberName) {
         return memberRepository.findByMemberName(memberName);
     }
+
+    //test
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
 }
